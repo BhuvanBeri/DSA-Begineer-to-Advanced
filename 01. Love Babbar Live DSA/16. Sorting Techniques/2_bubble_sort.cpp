@@ -23,7 +23,7 @@ void bubbleSort(int arr[], int n) {
             }
         }
         if (swapped == false) { // this is done so that in best case scenario
-            break;              // code becomes of time complexity O(n);
+            break;              // code becomes of time complexity O(n); Else normal TC = O(n^2)
         }
     }
     return;

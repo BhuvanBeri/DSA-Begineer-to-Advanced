@@ -10,15 +10,15 @@ using namespace std;
 
 void selectionSort(int arr[], int n) {
 
-    for (int i=0; i<n; i++) {
-        int minIndex = i;
+    for (int i=0; i<n-1; i++) { // one loop of i from 0 to n-1, cause last one is unnecessary repeat
+        int minIndex = i;       // assigning minIndex initially to value at index i
 
-        for (int j=i+1; j<n; j++) {
-            if (arr[minIndex] > arr[j]) {
+        for (int j=i+1; j<n; j++) { // second loop of j will be from i+1 index to n
+            if (arr[minIndex] > arr[j]) {   // if in j loop, minIndex finds new min value it will be assigned
                 minIndex = j;
             }
         }
-        swap(arr[i], arr[minIndex]);
+        swap(arr[i], arr[minIndex]);    // finally for that outer loop, if minIndex is changed, it will swap the value with loop ith index.
     }
 }
 

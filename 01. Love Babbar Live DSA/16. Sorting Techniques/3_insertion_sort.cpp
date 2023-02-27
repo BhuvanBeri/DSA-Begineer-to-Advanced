@@ -6,37 +6,37 @@
 
 
 #include<iostream>
+#include<vector>
 using namespace std;
 
-void insertionSort(int arr[], int n) {
+void insertionSort(vector<int> arr) {
 
-    for (int i=1; i<n; i++) {   // rounds
+    for (int i=1; i<arr.size(); i++) {   // rounds without involving 1st element at index 0
         
-        int temp = arr[i];
-        int j=i-1;
-        for ( ; j>=0; j--) {    // shift
+        int temp = arr[i];  // Step 1 = Fetch
+        int j=i-1;  // Step 2 = Compare
 
-            if (arr[j] > temp) {
+        for ( ; j>=0; j--) {    
+
+            if (arr[j] > temp) {    // Step 3 = shift arr[j] to arr[j+1]
                 arr[j+1] = arr[j];
             }
-            else {
+            else {                  // if sorted already, break out of loop for this round
                 break;
             }
         }
-        arr[j] = temp;
+        arr[j+1] = temp;  // Step 4 = enter the copied value to its right place after all that shifting, etc.
+    }
+    for (int i=0; i<arr.size(); i++) {
+        cout << arr[i] << " ";
     }
 }
 
 int main() {
 
-    int arr[] = {10,1,7,4,8,2};
-    int n = 6;
+    vector<int> arr = {10,1,7,6,14,9};
 
-    insertionSort(arr, n);
-
-    for (int i=0; i<n; i++) {
-        cout << arr[i] << " ";
-    }
+    insertionSort(arr);
 
     return 0;
 }
