@@ -37,6 +37,37 @@ void reverseCharArray(char arr[]) {
     }
 }
 
+void replaceSpaces(char inp[]) {
+
+    int i=0;
+    int n = strlen(inp);
+    for(int i=0; i<n; i++) {
+        if(inp[i] == ' ') {
+            inp[i] = '@';   // replaced space with @.
+        }
+    }
+}
+
+void convertIntoUpperCase(char arr[]) {
+    int n = strlen(arr);
+
+    if (arr[i] > 'a' && arr[i] < 'z') {
+        for(int i=0; i<n; i++) {
+            arr[i] = arr[i] - 'a' + 'A';
+        }
+    }
+}
+
+void convertIntoLowerCase(char arr[]) {
+    int n = strlen(arr);
+
+    if (arr[i] > 'A' && arr[i] < 'Z') { // to ignore already lower case input
+        for(int i=0; i<n; i++) {
+            arr[i] = arr[i] + 'a' - 'A';
+        }
+    }
+}
+
 int main() {
 
 /*
@@ -54,7 +85,28 @@ int main() {
     // cout << "Length is --> " << strlen(name) << endl;
     // cout << "comparing is --> " << strcmp(name, name2) << endl;
 
+    // cin.getline(name, 10);   --> max it can take input of characters --> to take full input even after space
+
     reverseCharArray(name);
     cout << "reversed name is --> " << name << endl;
+
+    // reverse all spaces 
+    char inp[100];
+    cout << "Enter input: " << endl;
+    cin.getline(inp, 100);
+
+    replaceSpaces(inp);
+    cout << "printing sentence " << endl << inp << endl;
+
+    // convert to uppercase
+    char arr[100] = "bhuvan";
+    convertIntoUpperCase(arr);
+
+    cout << arr << endl;
+
+    // convert to lowercase
+    convertIntoLowerCase(arr);
+    cout << arr << endl;
+
     return 0; 
 }
